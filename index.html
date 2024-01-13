@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Slide-Out Navigation</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <button class="hamburger" onclick="show()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+            <div id="bar4" class="bar"></div>
+        </button>
+        <!-- 
+        <nav>
+            <ul>
+                <li><a>Home</a></li>
+                <li><a>About</a></li>
+                <li><a>Blog</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+        </nav> -->
+
+        <div class="heading-section">
+            <ul class="heading">
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function show() {
+            document.querySelector('.hamburger').classList.toggle('open')
+            document.querySelector('.navigation').classList.toggle('active')
+        }
+
+        const menu = document.querySelector('.hamburger');
+        menu.addEventListener('mousemove', function (e) {
+            const position = menu.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+            menu.style.transform = "translate(" + x * 1 + "px, " + y * 1 + "px)";
+        })
+        menu.addEventListener('mouseout', function (e) {
+            menu.style.transform = "translate(0px, 0px)";
+        })
+
+    </script>
+</body>
+
+</html>
